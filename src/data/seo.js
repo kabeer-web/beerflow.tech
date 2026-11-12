@@ -202,6 +202,8 @@ export const pages = {
 };
 
 
+import { faqs as siteFaqs } from "./company.js";
+
 const abs = (p) => SITE_URL + p;
 
 export function metaFor(path) {
@@ -229,6 +231,7 @@ export function jsonLd(path) {
       { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
       { "@type": "ListItem", position: 2, name: page.crumb, item: abs(path) } ] });
   }
+  if (path === "/" || path === "/faq") out.push({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: siteFaqs.map(({ q, a }) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) });
   const l = landings[path];
   if (l) {
     const base = { "@context": "https://schema.org", "@type": l.schema.type, name: l.schema.name, description: l.description, url: abs(path), provider: { "@id": SITE_URL + "/#org" }, areaServed: { "@type": "City", name: "Karachi" } };

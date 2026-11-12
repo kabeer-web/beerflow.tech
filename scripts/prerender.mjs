@@ -1,6 +1,7 @@
 // Called by vite.config.js at the end of every `vite build` (so it runs no matter what build command the host uses). Writes one real HTML file per route (correct title, description, canonical,
 // social tags, JSON-LD and crawlable fallback text), plus sitemap.xml, robots.txt and 404.html.
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
+import { services, faqs, processSteps } from "../src/data/company.js";
 import { SITE_URL, BRAND, pages, landings, metaFor } from "../src/data/seo.js";
 
 export function prerender() {
@@ -23,7 +24,10 @@ function head(m) {
 function fallback(path, m) {
   const l = landings[path];
   const nav = Object.keys(pages).map((p) => `<a href="${p}">${pages[p].crumb || "Home"}</a>`).join(" ");
-  const body = l ? `<ul>${l.features.map(([t, d]) => `<li><h2>${t}</h2><p>${d}</p></li>`).join("")}</ul>` : "";
+  let body = l ? `<ul>${l.features.map(([t, d]) => `<li><h2>${t}</h2><p>${d}</p></li>`).join("")}</ul>` : "";
+  if (path === "/" || path === "/services") body = `<ul>${services.map((x) => `<li><h2>${x.title}</h2><p>${x.description}</p></li>`).join("")}</ul>`;
+  if (path === "/" || path === "/faq") body += `<h2>Frequently asked questions</h2>${faqs.map((f) => `<h3>${f.q}</h3><p>${f.a}</p>`).join("")}`;
+  if (path === "/process") body = `<ol>${processSteps.map((x) => `<li><h2>${x.title}</h2><p>${x.description}</p></li>`).join("")}</ol>`;
   return `<div id="root"><header><nav>${nav}</nav></header><main><h1>${m.h1 || BRAND.name}</h1><p>${m.description}</p>${body}</main></div>`;
 }
 
