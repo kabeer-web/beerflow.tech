@@ -17,6 +17,7 @@ import StickyCTA from "./components/StickyCTA";
 import FAQ from "./components/FAQ";
 import Products from "./components/Products";
 import WhatWeBuild from "./components/WhatWeBuild";
+import Pricing from "./components/Pricing";
 import Legal from "./components/Legal";
 import { landings } from "./data/seo";
 import { SmoothScroll, ScrollProgress, Cursor, LinkInterceptor } from "./components/Fx";
@@ -30,6 +31,7 @@ const Home = () => (
     <Showcase />
     <CaseStudy />
     <Products />
+    <Pricing />
     <About />
     <FAQ />
     <Contact />
@@ -56,6 +58,13 @@ const ServicesPage = () => (
 const AboutPage = () => (
   <Page>
     <About />
+    <Contact />
+  </Page>
+);
+
+const PricingPage = () => (
+  <Page>
+    <Pricing />
     <Contact />
   </Page>
 );
@@ -111,6 +120,7 @@ export default function App() {
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/pricing" element={<PricingPage />} />
             <Route path="/process" element={<ProcessPage />} />
             <Route path="/faq" element={<FaqPage />} />
             <Route path="/privacy" element={<LegalPage path="/privacy" />} />

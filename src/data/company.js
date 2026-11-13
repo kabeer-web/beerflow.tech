@@ -245,12 +245,17 @@ export const navLinks = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
   { label: "Work", href: "/work" },
+  { label: "Pricing", href: "/pricing" },
   { label: "Process", href: "/process" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
 
 export const faqs = [
+  {
+    q: "Why is there a monthly fee for the offline POS?",
+    a: "Offline software runs on your own computer, so the monthly fee is not for running it. The Support Plan pays for help on WhatsApp or phone when something goes wrong, bug fixes, software updates, help restoring your backup, and help updating your menu, prices and receipt text. If you stop the plan, the software you already have keeps working, but support and updates stop.",
+  },
   {
     q: "What does BeerFlow Technologies build?",
     a: "We build custom websites, business web applications, e-commerce platforms, POS systems, inventory and factory management software, billing systems, and other tailored digital solutions for companies that need technology shaped around their operations.",

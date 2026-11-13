@@ -158,6 +158,13 @@ export const pages = {
     h1: "Services",
     crumb: "Services",
   },
+  "/pricing": {
+    title: "Restaurant POS Pricing in Karachi | Offline & Cloud Plans | BeerFlow Technologies",
+    description:
+      "Transparent pricing for restaurant POS software in Karachi: offline POS from PKR 20,000, cloud POS with AI, and custom-branded options. Development fee plus a small monthly plan.",
+    h1: "Restaurant POS Pricing",
+    crumb: "Pricing",
+  },
   "/about": {
     title: "About BeerFlow Technologies | Founder-Led Software Company in Karachi",
     description:
