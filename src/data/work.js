@@ -1,6 +1,7 @@
 const pos = import.meta.glob("../assets/work/pos/*.webp", { eager: true, import: "default" });
 const tape = import.meta.glob("../assets/work/tape/*.webp", { eager: true, import: "default" });
-const img = (set, n) => set[`../assets/work/${set === pos ? "pos" : "tape"}/${String(n).padStart(2, "0")}.webp`];
+const pizza = import.meta.glob("../assets/work/pizza/*.webp", { eager: true, import: "default" });
+const img = (set, n) => set[`../assets/work/${set === pos ? "pos" : set === pizza ? "pizza" : "tape"}/${String(n).padStart(2, "0")}.webp`];
 
 export const demos = [
   {
@@ -45,5 +46,32 @@ export const demos = [
       [10, "Production hub", "Jumbo to core slitting, with yards calculated for you."],
       [11, "Purchase invoice", "Supplier rolls arrive, stock updates itself."],
     ].map(([n, title, text]) => ({ src: img(tape, n), title, text })),
+  },
+  {
+    id: "pizza",
+    tab: "Pizza Party",
+    badge: "Real client · Pizza Party, Baldia Karachi",
+    title: "Pizza Party: Website + Custom POS",
+    summary: "A branded ordering website for customers, and a desktop POS for the shop counter. Built for Pizza Party in Baldia Town, Karachi.",
+    aspect: "landscape",
+    slides: [
+      ["Website", "A homepage that feels like the brand", "Bold hero, size prices up front, and live open or closed status."],
+      ["Website", "Build your pizza", "Pick one of 7 flavours, choose a size, add it to the order."],
+      ["Website", "Pasta, lasagna and pizza fries", "Sides with clear prices and a one-tap Add button."],
+      ["Website", "10 ready-made deals", "Filter by pizza only or with a cold drink. Savings shown on every deal."],
+      ["Website", "One tap to order", "Customers send their order straight to WhatsApp."],
+      ["Website", "Brand story and FAQ", "Who Pizza Party is, plus quick answers about menu, deals and hours."],
+      ["Website", "Find us and contact", "Address, opening hours, Call and WhatsApp buttons, and a map link."],
+      ["Software", "Staff sign in", "Owner and Cashier logins. Data stays on the shop's own device."],
+      ["Software", "New order in seconds", "Deals, pizza, drinks, sides and extras. Takeaway, dine-in or delivery."],
+      ["Software", "Owner dashboard", "Sales, cash, credit owed and expenses for today, 7 days or 30 days."],
+      ["Software", "Menu and deals manager", "Change prices, add deals and upload item photos."],
+      ["Software", "Stock tracked by ingredient", "Dough, cheese, sauce and more, with minimum stock alerts."],
+      ["Software", "Parties and ledger", "Know exactly what each credit customer and supplier is owed."],
+      ["Software", "Customer records", "Save name and phone to keep order history. Walk-ins need nothing."],
+      ["Software", "Expenses and cash drawer", "Log costs, set opening cash, see what the drawer should hold."],
+      ["Software", "Reports you can export", "Pick any dates. Download CSV or PDF, or print."],
+      ["Software", "Shop settings", "Name, phones, hours, receipt footer and 80 mm receipt width."],
+    ].map(([group, title, text], k) => ({ src: img(pizza, k + 1), group, title, text })),
   },
 ];
